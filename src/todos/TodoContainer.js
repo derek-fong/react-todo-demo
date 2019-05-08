@@ -1,5 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
 
+import './TodoContainer.css';
 import AddTodoItem from './AddTodoItem';
 import TodoList from './TodoList';
 
@@ -50,10 +53,20 @@ export default class TodoContainer extends Component {
 
   render() {
     return (
-      <Fragment>
-        <AddTodoItem addTodo={this.handleAddTodo} />
-        <TodoList todos={this.state.todos} deleteTodo={this.handleDeleteTodo} />
-      </Fragment>
+      <Container id="todo-container">
+        <Card>
+          <Card.Header className="text-center" as="h1">
+            TODO
+          </Card.Header>
+          <Card.Body>
+            <AddTodoItem addTodo={this.handleAddTodo} />
+            <TodoList
+              todos={this.state.todos}
+              deleteTodo={this.handleDeleteTodo}
+            />
+          </Card.Body>
+        </Card>
+      </Container>
     );
   }
 }

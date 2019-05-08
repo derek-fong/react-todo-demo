@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import TodoContainer from "./todo/TodoContainer";
+import TodoContainer from './todos/TodoContainer';
 
 function App() {
   return (
-    <div className="App">
+    <main>
       <TodoContainer />
-    </div>
+    </main>
   );
 }
 

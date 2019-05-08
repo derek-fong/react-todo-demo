@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 export default class AddTodoItem extends Component {
   constructor(props) {
@@ -25,18 +28,19 @@ export default class AddTodoItem extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="input-detail">
-          Add TODO:
-          <input
+        <InputGroup className="mb-3">
+          <FormControl
             id="input-detail"
+            placeholder="Add a task..."
             value={this.state.detail}
             onChange={this.handleChange}
           />
-        </label>
-
-        <button type="submit" disabled={!this.state.detail}>
-          Add
-        </button>
+          <InputGroup.Append>
+            <Button disabled={!this.state.detail} type="submit">
+              Add
+            </Button>
+          </InputGroup.Append>
+        </InputGroup>
       </form>
     );
   }
